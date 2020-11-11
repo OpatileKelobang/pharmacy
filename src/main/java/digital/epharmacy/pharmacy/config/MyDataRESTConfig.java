@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.EntityManager;
 import javax.persistence.metamodel.EntityType;
@@ -21,11 +24,23 @@ public class MyDataRESTConfig implements RepositoryRestConfigurer {
         entityManager = injectedEntityManager;
     }
 
+    @GetMapping("/products")
+    public ResponseEntity<String> usingResponseEntityBuilderAndHttpHeaders(){
+        HttpHeaders responseHeaders = new HttpHeaders();
+        responseHeaders.set("X-Total-Count", "Value-ResponseEntityBuilderWithHttpHeaders");
+
+        return ResponseEntity.ok()
+                .headers(responseHeaders)
+                .body("X-Total-Count");
+    }
+
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
 
         // Expose ID in JSON
         exposeIds(config);
+
+
 
         /*HttpMethod[] unsupportedActions = {HttpMethod.PUT, HttpMethod.POST, HttpMethod.DELETE};
 
