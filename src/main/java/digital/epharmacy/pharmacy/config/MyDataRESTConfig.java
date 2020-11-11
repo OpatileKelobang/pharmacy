@@ -10,10 +10,7 @@ import org.springframework.http.HttpMethod;
 @Configuration
 public class MyDataRESTConfig implements RepositoryRestConfigurer {
 
-    // Commented out Security to expose all endpoints PUT, POST and DELETE
-    // Implement once user roles are created
-
-    /*@Override
+    @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
         HttpMethod[] unsupportedActions = {HttpMethod.PUT, HttpMethod.POST, HttpMethod.DELETE};
 
@@ -28,5 +25,5 @@ public class MyDataRESTConfig implements RepositoryRestConfigurer {
                 .forDomainType(ProductCategory.class)
                 .withItemExposure((metdata, httpMethods) -> httpMethods.disable(unsupportedActions))
                 .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(unsupportedActions));
-    }*/
+    }
 }
