@@ -10,11 +10,17 @@ import org.springframework.http.HttpMethod;
 @Configuration
 public class MyDataRESTConfig implements RepositoryRestConfigurer {
 
-    /*@Override
+
+
+    @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
         HttpMethod[] unsupportedActions = {HttpMethod.PUT, HttpMethod.POST, HttpMethod.DELETE};
 
-        // Disable HTTTP methods for Product: PUT, POST amd DELETE
+        // Expose ID in JSON
+        config.exposeIdsFor(Product.class);
+        config.exposeIdsFor(ProductCategory.class);
+
+        /*// Disable HTTTP methods for Product: PUT, POST amd DELETE
         config.getExposureConfiguration()
                 .forDomainType(Product.class)
                 .withItemExposure((metdata, httpMethods) -> httpMethods.disable(unsupportedActions))
@@ -24,6 +30,6 @@ public class MyDataRESTConfig implements RepositoryRestConfigurer {
         config.getExposureConfiguration()
                 .forDomainType(ProductCategory.class)
                 .withItemExposure((metdata, httpMethods) -> httpMethods.disable(unsupportedActions))
-                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(unsupportedActions));
-    }*/
+                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(unsupportedActions));*/
+    }
 }
