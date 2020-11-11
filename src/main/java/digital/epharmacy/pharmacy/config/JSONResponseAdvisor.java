@@ -1,6 +1,7 @@
 package digital.epharmacy.pharmacy.config;
 
 import digital.epharmacy.pharmacy.entity.Product;
+import org.hibernate.mapping.Collection;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -14,7 +15,7 @@ import java.util.List;
 public class JSONResponseAdvisor implements ResponseBodyAdvice<List<Product>> {
     @Override
     public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {
-        return false;
+        return Collection.class.isAssignableFrom(methodParameter.getParameterType());
     }
 
     @Override
