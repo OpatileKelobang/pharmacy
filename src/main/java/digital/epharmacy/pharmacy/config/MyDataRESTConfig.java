@@ -27,6 +27,19 @@ public class MyDataRESTConfig implements RepositoryRestConfigurer {
         // Expose ID in JSON
         exposeIds(config);
 
+        // Disable CORS
+        config.getCorsRegistry()
+                .addMapping("/api")
+                .allowedMethods("GET", "POST", "DELETE", "PUT")
+                .allowedHeaders("application/json")
+                .allowedOrigins("http://localhost:4200",
+                        "http://localhost:3000",
+                        "https://epharmacy-online.herokuapp.com",
+                        "http://amahlathini.github.io/admin-dashboard",
+                        "http://vibekonnect.tech/admin-dashboard"
+                );
+
+
         /*HttpMethod[] unsupportedActions = {HttpMethod.PUT, HttpMethod.POST, HttpMethod.DELETE};
 
         // Disable HTTTP methods for Product: PUT, POST amd DELETE
