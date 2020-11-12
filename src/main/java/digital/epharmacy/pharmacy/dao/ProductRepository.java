@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:3000", "https://epharmacy-online.herokuapp.com", "http://amahlathini.github.io/admin-dashboard", "http://vibekonnect.tech/admin-dashboard"})
+@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:3000", "https://epharmacy-online.herokuapp.com", "https://amahlathini.github.io/admin-dashboard", "http://vibekonnect.tech/admin-dashboard"})
 public interface ProductRepository extends JpaRepository<Product, Long> {
     Page<Product> findByCategoryId(@RequestParam("id") Long id, Pageable pageable);
 }
