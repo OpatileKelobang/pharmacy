@@ -28,7 +28,7 @@ public class MyDataRESTConfig implements RepositoryRestConfigurer {
         exposeIds(config);
 
         // Disable CORS
-        config.getCorsRegistry()
+        /*config.getCorsRegistry()
                 .addMapping("/api")
                 .allowedMethods("GET", "POST", "DELETE", "PUT")
                 .allowedHeaders("application/json")
@@ -38,7 +38,7 @@ public class MyDataRESTConfig implements RepositoryRestConfigurer {
                         "https://amahlathini.github.io/admin-dashboard",
                         "https://vibekonnect.tech/admin-dashboard/",
                         "https://vibekonnect.tech"
-                );
+                );*/
 
 
         /*HttpMethod[] unsupportedActions = {HttpMethod.PUT, HttpMethod.POST, HttpMethod.DELETE};
