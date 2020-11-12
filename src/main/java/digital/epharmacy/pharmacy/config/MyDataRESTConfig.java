@@ -36,7 +36,8 @@ public class MyDataRESTConfig implements RepositoryRestConfigurer {
                         "http://localhost:3000",
                         "https://epharmacy-online.herokuapp.com",
                         "https://amahlathini.github.io/admin-dashboard",
-                        "https://vibekonnect.tech/admin-dashboard/"
+                        "https://vibekonnect.tech/admin-dashboard/",
+                        "https://vibekonnect.tech"
                 );
 
 
